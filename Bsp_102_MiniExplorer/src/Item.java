@@ -1,3 +1,7 @@
+
+import java.io.File;
+import java.time.LocalDateTime;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -8,6 +12,15 @@
  *
  * @author Ben
  */
-public class Item {
+public class Item extends File{
+
+    private String dateiname;
+    private LocalDateTime datum;
+    private int kb;
+    private String attribut;
+    
+    public Item(String pathname) {
+        super(pathname);
+    }
     
 }

@@ -10,11 +10,13 @@
  */
 public class GUI extends javax.swing.JFrame {
 
+    private DateiModell dm = new DateiModell();
     /**
      * Creates new form GUI
      */
     public GUI() {
         initComponents();
+        liItems.setModel(dm);
     }
 
     /**
