@@ -12,10 +12,10 @@ public class Item extends File {
     private int kb=0;
     private String attribut="";
 
-    public Item(String dateiname, long datum, int kb, String attribut, String pathname) {
+    public Item(String dateiname, long datum, int kb, String pathname) {
         super(pathname);
         this.dateiname = dateiname;
-        this.datum = LocalDateTime.ofEpochSecond(datum, 0, ZoneOffset.UTC);
+        this.datum = LocalDateTime.ofEpochSecond(datum/1000, 0, ZoneOffset.UTC);
         this.kb = kb;
         this.attribut = attribut;
     }
@@ -44,6 +44,10 @@ public class Item extends File {
 
     public String getAttribut() {
         return attribut;
+    }
+
+    public void setAttribut(String attribut) {
+        this.attribut = this.attribut+attribut;
     }
     
     

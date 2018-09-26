@@ -11,6 +11,7 @@ public class GUI extends javax.swing.JFrame {
         dm.load();
         liItems.setCellRenderer(new FileListRenderer());
         dm.sortieren();
+        dm.attributs();
     }
 
     /**
@@ -59,6 +60,7 @@ public class GUI extends javax.swing.JFrame {
         if(evt.getClickCount()==2){
             dm.goDeeper(liItems.getSelectedIndex());
             dm.sortieren();
+            dm.attributs();
         }
     }//GEN-LAST:event_liItemsMouseClicked
 

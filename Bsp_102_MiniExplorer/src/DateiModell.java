@@ -35,15 +35,29 @@ public class DateiModell extends AbstractListModel<Item> {
         
     }
     
+    public void attributs(){
+        for (Item item : items) {
+            if(item.canRead()){
+                item.setAttribut("R");
+            }
+            if(item.canWrite()){
+                item.setAttribut("W");
+            }
+            if(item.canExecute()){
+                item.setAttribut("X");
+            }
+        }
+    }
+    
     public void load() {
 
-        File folder = new File("C:\\Users\\vizug\\OneDrive\\Dokumente\\NetBeansProjects\\MiniExplorer");
+        File folder = new File("D:\\Privat\\Schule\\POS\\Git\\Bsp_102_MiniExplorer\\Bsp_102_MiniExplorer");
         File[] listOfFiles = folder.listFiles();
 
         for (File file : listOfFiles) {
             if (file.isFile()) {
                 System.out.println(file.getName());
-                addFiles(new Item(file.getName(), file.lastModified(), (int) file.length(), null, file.getAbsolutePath()));
+                addFiles(new Item(file.getName(), file.lastModified(), (int) file.length(), file.getAbsolutePath()));
             } else if (file.isDirectory()) {
                 addFiles(new Item(file.getName(), file.getAbsolutePath()));
             }
@@ -58,7 +72,7 @@ public class DateiModell extends AbstractListModel<Item> {
         for (File file : listOfFiles) {
             if (file.isFile()) {
                 System.out.println(file.getName());
-                addFiles(new Item(file.getName(), file.lastModified(), (int) file.length(), null, file.getAbsolutePath()));
+                addFiles(new Item(file.getName(), file.lastModified(), (int) file.length(), file.getAbsolutePath()));
             } else if (file.isDirectory()) {
                 addFiles(new Item(file.getName(), file.getAbsolutePath()));
             }
