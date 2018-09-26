@@ -25,7 +25,7 @@ public class Item extends File {
     public Item(String dateiname, long datum, int kb, String attribut, String pathname) {
         super(pathname);
         this.dateiname = dateiname;
-        this.datum = LocalDateTime.ofEpochSecond(datum, 0, ZoneOffset.UTC);
+        this.datum = LocalDateTime.ofEpochSecond(datum/1000, 0, ZoneOffset.UTC);
         this.kb = kb;
         this.attribut = attribut;
     }
