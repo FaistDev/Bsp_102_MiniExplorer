@@ -39,6 +39,22 @@ public class Item extends File {
     public String toString() {
         return dateiname+" "+datum.format(DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss"))+" "+kb+" "+attribut;
     }
+
+    public String getDateiname() {
+        return dateiname;
+    }
+
+    public LocalDateTime getDatum() {
+        return datum;
+    }
+
+    public int getKb() {
+        return kb;
+    }
+
+    public String getAttribut() {
+        return attribut;
+    }
     
     
 

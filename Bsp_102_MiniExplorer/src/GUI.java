@@ -18,6 +18,7 @@ public class GUI extends javax.swing.JFrame {
         initComponents();
         liItems.setModel(dm);
         dm.load();
+        liItems.setCellRenderer(new FileListRenderer());
     }
 
     /**
