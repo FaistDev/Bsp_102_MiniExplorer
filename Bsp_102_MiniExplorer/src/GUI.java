@@ -34,6 +34,11 @@ public class GUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        liItems.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                liItemsMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(liItems);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -55,6 +60,13 @@ public class GUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void liItemsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_liItemsMouseClicked
+        // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            dm.goDeeper(liItems.getSelectedIndex());
+        }
+    }//GEN-LAST:event_liItemsMouseClicked
 
     /**
      * @param args the command line arguments

@@ -40,11 +40,25 @@ public class DateiModell extends AbstractListModel<Item> {
         for (File file : listOfFiles) {
             if (file.isFile()) {
                 System.out.println(file.getName());
-                addFiles(new Item(file.getName(), file.lastModified(), (int)file.length(), null, file.getAbsolutePath()));
-            }else if(file.isDirectory()){
-                addFiles(new Item(file.getName(),file.getAbsolutePath()));
+                addFiles(new Item(file.getName(), file.lastModified(), (int) file.length(), null, file.getAbsolutePath()));
+            } else if (file.isDirectory()) {
+                addFiles(new Item(file.getName(), file.getAbsolutePath()));
             }
         }
 
+    }
+
+    public void goDeeper(int index) {
+        File folder = new File(items.get(index).getAbsolutePath());
+        File[] listOfFiles = folder.listFiles();
+        items.clear();
+        for (File file : listOfFiles) {
+            if (file.isFile()) {
+                System.out.println(file.getName());
+                addFiles(new Item(file.getName(), file.lastModified(), (int) file.length(), null, file.getAbsolutePath()));
+            } else if (file.isDirectory()) {
+                addFiles(new Item(file.getName(), file.getAbsolutePath()));
+            }
+        }
     }
 }
