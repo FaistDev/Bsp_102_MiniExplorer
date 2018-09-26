@@ -17,6 +17,7 @@ public class GUI extends javax.swing.JFrame {
     public GUI() {
         initComponents();
         liItems.setModel(dm);
+        dm.load();
     }
 
     /**
