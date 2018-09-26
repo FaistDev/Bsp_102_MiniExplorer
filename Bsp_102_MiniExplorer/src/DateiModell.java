@@ -1,22 +1,15 @@
 
 import java.io.File;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import javax.swing.AbstractListModel;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-/**
- *
- * @author Ben
- */
+
 public class DateiModell extends AbstractListModel<Item> {
 
     private ArrayList<Item> items = new ArrayList<>();
-
+    
+    
+    
     @Override
     public int getSize() {
         return items.size();
@@ -32,9 +25,19 @@ public class DateiModell extends AbstractListModel<Item> {
         fireIntervalAdded(this, items.size() - 1, items.size() - 1);
     }
 
+    public void sortieren() {
+        ArrayList<Item> help = new ArrayList<>();
+        FileComparer f = new FileComparer();
+        help=f.sort(items);
+        
+        items.clear();
+        items.addAll(help);
+        
+    }
+    
     public void load() {
 
-        File folder = new File("D:\\Privat\\Schule\\POS\\Git\\Bsp_102_MiniExplorer\\Bsp_102_MiniExplorer");
+        File folder = new File("C:\\Users\\vizug\\OneDrive\\Dokumente\\NetBeansProjects\\MiniExplorer");
         File[] listOfFiles = folder.listFiles();
 
         for (File file : listOfFiles) {
